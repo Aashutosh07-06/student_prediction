@@ -28,3 +28,4 @@ Thumbs.db
 # Database sensitive configs / local backups
 *.sql.bak
 *.db.bak
+*.db
