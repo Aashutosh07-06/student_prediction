@@ -458,26 +458,31 @@ html, body, [class*="css"] {
 }
 
 /* =====================================================
-   LOGIN / REGISTER TABS - HIGH CONTRAST & CLEAR COLOR
+   UNIVERSAL STREAMLIT TABS - HIGH CONTRAST & MODERN PILL
    ===================================================== */
-[data-testid="stTabs"] {
+div[data-testid="stTabs"] {
     width: 100% !important;
+    margin-bottom: 22px !important;
 }
 
 /* Tab list bar */
-[data-testid="stTabs"] [data-baseweb="tab-list"] {
+div[data-testid="stTabs"] [role="tablist"],
+div[data-testid="stTabs"] [data-baseweb="tab-list"],
+div[data-testid="stTabs"] > div:first-child {
     background: #e2e8f0 !important;
     border: 1.5px solid #cbd5e1 !important;
     border-radius: 14px !important;
     padding: 6px !important;
     gap: 8px !important;
-    margin-bottom: 20px !important;
+    margin-bottom: 18px !important;
     display: flex !important;
     box-shadow: inset 0 2px 4px rgba(15, 23, 42, 0.05) !important;
 }
 
 /* Inactive Tab Button */
-[data-testid="stTabs"] [data-baseweb="tab"] {
+div[data-testid="stTabs"] button[role="tab"],
+div[data-testid="stTabs"] [data-baseweb="tab"],
+div[data-testid="stTabs"] button {
     flex: 1 1 0 !important;
     text-align: center !important;
     justify-content: center !important;
@@ -489,53 +494,72 @@ html, body, [class*="css"] {
     padding: 10px 18px !important;
     font-size: 15px !important;
     font-weight: 700 !important;
-    box-shadow: 0 1px 4px rgba(15, 23, 42, 0.06) !important;
+    box-shadow: 0 1px 3px rgba(15, 23, 42, 0.06) !important;
     cursor: pointer !important;
     transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
 /* Target all inactive tab text children */
-[data-testid="stTabs"] [data-baseweb="tab"] * {
+div[data-testid="stTabs"] button[role="tab"] *,
+div[data-testid="stTabs"] [data-baseweb="tab"] *,
+div[data-testid="stTabs"] button *,
+div[data-testid="stTabs"] button p,
+div[data-testid="stTabs"] button div,
+div[data-testid="stTabs"] button span {
     color: #1e293b !important;
     font-weight: 700 !important;
-    font-size: 15px !important;
+    font-size: 14.5px !important;
 }
 
-[data-testid="stTabs"] [data-baseweb="tab"]:hover {
-    background: #f8fafc !important;
+/* Hover Tab */
+div[data-testid="stTabs"] button[role="tab"]:hover,
+div[data-testid="stTabs"] [data-baseweb="tab"]:hover,
+div[data-testid="stTabs"] button:hover {
+    background: #f1f5f9 !important;
     border-color: #94a3b8 !important;
+    transform: translateY(-1px);
 }
 
-[data-testid="stTabs"] [data-baseweb="tab"]:hover * {
+div[data-testid="stTabs"] button[role="tab"]:hover *,
+div[data-testid="stTabs"] [data-baseweb="tab"]:hover *,
+div[data-testid="stTabs"] button:hover * {
     color: #0f172a !important;
 }
 
 /* Active Selected Tab Button */
-[data-testid="stTabs"] [data-baseweb="tab"][aria-selected="true"] {
+div[data-testid="stTabs"] button[role="tab"][aria-selected="true"],
+div[data-testid="stTabs"] [data-baseweb="tab"][aria-selected="true"] {
     background: linear-gradient(135deg, #4338ca 0%, #2563eb 100%) !important;
     border-color: #3b82f6 !important;
     box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35) !important;
 }
 
 /* Target all active tab text children */
-[data-testid="stTabs"] [data-baseweb="tab"][aria-selected="true"] * {
+div[data-testid="stTabs"] button[role="tab"][aria-selected="true"] *,
+div[data-testid="stTabs"] [data-baseweb="tab"][aria-selected="true"] *,
+div[data-testid="stTabs"] button[role="tab"][aria-selected="true"] p,
+div[data-testid="stTabs"] button[role="tab"][aria-selected="true"] div,
+div[data-testid="stTabs"] button[role="tab"][aria-selected="true"] span {
     color: #ffffff !important;
     font-weight: 800 !important;
-    font-size: 15px !important;
+    font-size: 14.5px !important;
 }
 
-/* Completely remove Streamlit's default tab underline */
-[data-testid="stTabs"] [data-baseweb="tab-highlight"] {
+/* Hide default underline bar */
+div[data-testid="stTabs"] [role="tablist"] > div[style*="position: absolute"],
+div[data-testid="stTabs"] [data-baseweb="tab-highlight"],
+div[data-testid="stTabs"] [data-testid="stTabHighlight"] {
     display: none !important;
 }
 
 /* =====================================================
-   FORM CONTROLS & INPUTS
+   FORM CONTROLS, INPUTS & DROPDOWNS
    ===================================================== */
 [data-testid="stTextInput"] label,
 [data-testid="stNumberInput"] label,
 [data-testid="stSelectbox"] label,
-[data-testid="stRadio"] label {
+[data-testid="stRadio"] label,
+[data-testid="stSlider"] label {
     color: #0f172a !important;
     font-weight: 700 !important;
     font-size: 14px !important;
@@ -559,11 +583,45 @@ html, body, [class*="css"] {
     box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15) !important;
 }
 
+/* Selectbox Dropdown Container */
+[data-testid="stSelectbox"] div[data-baseweb="select"] > div {
+    background: #ffffff !important;
+    border: 1.5px solid #cbd5e1 !important;
+    border-radius: 12px !important;
+    color: #0f172a !important;
+}
+
+[data-testid="stSelectbox"] div[data-baseweb="select"] * {
+    color: #0f172a !important;
+    font-weight: 600 !important;
+}
+
+/* Dropdown popover list items */
+div[data-baseweb="popover"] ul,
+div[data-baseweb="menu"] {
+    background: #ffffff !important;
+    border: 1px solid #cbd5e1 !important;
+    border-radius: 12px !important;
+    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.12) !important;
+}
+
+div[data-baseweb="popover"] li,
+div[data-baseweb="menu"] li {
+    color: #0f172a !important;
+    font-weight: 600 !important;
+}
+
+div[data-baseweb="popover"] li:hover,
+div[data-baseweb="menu"] li:hover {
+    background: #eff6ff !important;
+    color: #1d4ed8 !important;
+}
+
 /* Buttons */
 div.stButton > button {
     border-radius: 13px !important;
     font-weight: 700 !important;
-    font-size: 15px !important;
+    font-size: 14.5px !important;
     padding: 0.72rem 1.25rem !important;
     border: 1.5px solid #cbd5e1 !important;
     background: #ffffff !important;
@@ -572,10 +630,19 @@ div.stButton > button {
     transition: all 0.2s ease !important;
 }
 
+div.stButton > button * {
+    color: #1e293b !important;
+    font-weight: 700 !important;
+}
+
 div.stButton > button:hover {
     border-color: #94a3b8 !important;
     background: #f8fafc !important;
     transform: translateY(-1px);
+}
+
+div.stButton > button:hover * {
+    color: #0f172a !important;
 }
 
 div.stButton > button[kind="primary"] {
@@ -583,6 +650,11 @@ div.stButton > button[kind="primary"] {
     color: #ffffff !important;
     border: 0 !important;
     box-shadow: 0 4px 14px rgba(37, 99, 235, 0.32) !important;
+}
+
+div.stButton > button[kind="primary"] * {
+    color: #ffffff !important;
+    font-weight: 800 !important;
 }
 
 div.stButton > button[kind="primary"]:hover {
@@ -607,10 +679,12 @@ div[data-testid="stTabs"] div[role="radiogroup"] > label {
     background: #ffffff !important;
     border: 1px solid #e2e8f0 !important;
     border-radius: 10px !important;
-    padding: 7px 16px !important;
+    padding: 8px 16px !important;
     font-weight: 700 !important;
     color: #1e293b !important;
     box-shadow: 0 1px 3px rgba(15, 23, 42, 0.05) !important;
+    cursor: pointer !important;
+    transition: all 0.15s ease !important;
 }
 
 [data-testid="stMain"] div[role="radiogroup"] > label *,
@@ -618,6 +692,33 @@ div[data-testid="stTabs"] div[role="radiogroup"] > label {
 div[data-testid="stTabs"] div[role="radiogroup"] > label * {
     color: #1e293b !important;
     font-weight: 700 !important;
+}
+
+/* Selected radio in main body */
+[data-testid="stMain"] div[role="radiogroup"] > label[data-checked="true"],
+[data-testid="stMain"] div[role="radiogroup"] > label:has(input:checked),
+div[data-testid="stTabs"] div[role="radiogroup"] > label[data-checked="true"],
+div[data-testid="stTabs"] div[role="radiogroup"] > label:has(input:checked) {
+    background: linear-gradient(135deg, #4338ca 0%, #2563eb 100%) !important;
+    border-color: #3b82f6 !important;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.28) !important;
+}
+
+[data-testid="stMain"] div[role="radiogroup"] > label[data-checked="true"] *,
+[data-testid="stMain"] div[role="radiogroup"] > label:has(input:checked) *,
+div[data-testid="stTabs"] div[role="radiogroup"] > label[data-checked="true"] *,
+div[data-testid="stTabs"] div[role="radiogroup"] > label:has(input:checked) * {
+    color: #ffffff !important;
+    font-weight: 800 !important;
+}
+
+/* Dataframe & Tables */
+div[data-testid="stDataFrame"] {
+    border: 1.5px solid #e2e8f0 !important;
+    border-radius: 16px !important;
+    overflow: hidden !important;
+    box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04) !important;
+    background: #ffffff !important;
 }
 
 /* Sidebar Navigation Radio Styling (Dark Theme) */
@@ -1316,6 +1417,20 @@ def logout():
     st.rerun()
 
 
+def select_demo_account(email, password, portal_title, portal_idx):
+    st.session_state["login_email"] = email
+    st.session_state["login_password"] = password
+    st.session_state["login_portal_selector"] = portal_title
+    st.session_state["selected_portal_idx"] = portal_idx
+
+
+def direct_demo_login(email, password):
+    user = login_user(email, password)
+    if user:
+        st.session_state.logged_in = True
+        st.session_state.user = user
+
+
 # =========================================================
 # LOGIN / REGISTER
 # =========================================================
@@ -1340,12 +1455,53 @@ def login_page():
             login_tab, register_tab = st.tabs(["🔐 Sign In", "📝 Create Account"])
 
             with login_tab:
+                # Quick 1-Tap Demo Credentials Autofill
+                st.markdown("""
+                <div style="background: #f8fafc; border: 1.5px solid #cbd5e1; border-radius: 14px; padding: 12px 14px; margin-bottom: 14px;">
+                    <div style="font-size: 12.5px; font-weight: 800; color: #1e293b; margin-bottom: 8px; display: flex; align-items: center; gap: 6px;">
+                        ⚡ 1-TAP DEMO AUTOFILL:
+                    </div>
+                </div>
+                """, unsafe_allow_html=True)
+
+                demo_c1, demo_c2, demo_c3 = st.columns(3)
+                with demo_c1:
+                    st.button(
+                        "👨‍🎓 Student Demo",
+                        key="demo_btn_student",
+                        use_container_width=True,
+                        help="Autofill Student (student@gmail.com / student123)",
+                        on_click=select_demo_account,
+                        args=("student@gmail.com", "student123", "👨‍🎓 Student Portal", 0)
+                    )
+                with demo_c2:
+                    st.button(
+                        "👩‍🏫 Faculty Demo",
+                        key="demo_btn_faculty",
+                        use_container_width=True,
+                        help="Autofill Faculty (teacher@gmail.com / teacher123)",
+                        on_click=select_demo_account,
+                        args=("teacher@gmail.com", "teacher123", "👩‍🏫 Faculty Portal", 1)
+                    )
+                with demo_c3:
+                    st.button(
+                        "🏛️ Official Demo",
+                        key="demo_btn_official",
+                        use_container_width=True,
+                        help="Autofill Official (official@gmail.com / official123)",
+                        on_click=select_demo_account,
+                        args=("official@gmail.com", "official123", "🏛️ Institutional Official", 2)
+                    )
+
+                st.markdown('<div style="margin-top: 10px; margin-bottom: 4px;"></div>', unsafe_allow_html=True)
+
                 portal_options = ["👨‍🎓 Student Portal", "👩‍🏫 Faculty Portal", "🏛️ Institutional Official"]
-                default_idx = st.session_state.get("selected_portal_idx", 0)
+                if "login_portal_selector" not in st.session_state:
+                    st.session_state["login_portal_selector"] = "👨‍🎓 Student Portal"
+
                 selected_portal = st.radio(
                     "Select Your Access Portal:",
                     portal_options,
-                    index=default_idx,
                     horizontal=True,
                     key="login_portal_selector"
                 )
@@ -1422,6 +1578,16 @@ def login_page():
                                     st.rerun()
                             else:
                                 st.error("Invalid email or password.")
+
+                # Direct 1-Click Fast Access Buttons for Local Testing
+                st.markdown('<div style="text-align:center; margin: 14px 0 6px 0; font-size: 12px; font-weight: 700; color: #64748b;">⚡ 1-CLICK INSTANT PORTAL ACCESS (LOCAL TEST)</div>', unsafe_allow_html=True)
+                fast_c1, fast_c2, fast_c3 = st.columns(3)
+                with fast_c1:
+                    st.button("🚀 Enter Student", key="fast_student", use_container_width=True, on_click=direct_demo_login, args=("student@gmail.com", "student123"))
+                with fast_c2:
+                    st.button("🚀 Enter Faculty", key="fast_faculty", use_container_width=True, on_click=direct_demo_login, args=("teacher@gmail.com", "teacher123"))
+                with fast_c3:
+                    st.button("🚀 Enter Official", key="fast_official", use_container_width=True, on_click=direct_demo_login, args=("official@gmail.com", "official123"))
 
             with register_tab:
                 st.markdown("""
@@ -1592,32 +1758,6 @@ def login_page():
                             else:
                                 st.error(f"Registration failed: {result}")
 
-        # Quick Demo Buttons right inside Auth Column for instant mobile 1-tap access!
-        st.markdown('<div style="margin-top:14px; margin-bottom:6px; font-weight:700; font-size:14px; color:#475569;">⚡ Instant 1-Tap Demo Login</div>', unsafe_allow_html=True)
-        demo_c1, demo_c2, demo_c3 = st.columns(3)
-        with demo_c1:
-            if st.button("👨‍🎓 Student", use_container_width=True, help="Autofill student demo"):
-                st.session_state["login_email"] = "student@gmail.com"
-                st.session_state["login_password"] = "student123"
-                st.session_state["login_portal_selector"] = "👨‍🎓 Student Portal"
-                st.session_state["selected_portal_idx"] = 0
-                st.rerun()
-
-        with demo_c2:
-            if st.button("👩‍🏫 Faculty", use_container_width=True, help="Autofill teacher demo"):
-                st.session_state["login_email"] = "teacher@gmail.com"
-                st.session_state["login_password"] = "teacher123"
-                st.session_state["login_portal_selector"] = "👩‍🏫 Faculty Portal"
-                st.session_state["selected_portal_idx"] = 1
-                st.rerun()
-
-        with demo_c3:
-            if st.button("🏛️ Official", use_container_width=True, help="Autofill official demo"):
-                st.session_state["login_email"] = "official@gmail.com"
-                st.session_state["login_password"] = "official123"
-                st.session_state["login_portal_selector"] = "🏛️ Institutional Official"
-                st.session_state["selected_portal_idx"] = 2
-                st.rerun()
 
     with col_portals:
         st.markdown('<div class="section-title">🌟 Academic Portals & Overview</div>', unsafe_allow_html=True)
