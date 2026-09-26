@@ -181,14 +181,14 @@
       border-color: rgba(255, 255, 255, 0.2);
     }
 
-    /* Main Grid Structure (Mobile: 1 Column with Auth FIRST; Desktop: 2 Columns) */
+    /* Main Grid Structure */
     .hero-section {
       padding: 24px 0 40px;
     }
 
     @media (min-width: 900px) {
       .hero-section {
-        padding: 50px 0 60px;
+        padding: 45px 0 60px;
       }
     }
 
@@ -207,12 +207,6 @@
       }
     }
 
-    /* Hero Text Content */
-    .hero-content {
-      order: 1; /* Default order */
-    }
-
-    /* On Mobile, show concise intro, then AUTH CARD IS AT THE VERY TOP! */
     @media (max-width: 899px) {
       .hero-mobile-header {
         text-align: center;
@@ -224,7 +218,7 @@
       }
 
       .hero-content {
-        order: 2; /* Content follows auth on mobile */
+        order: 2;
         margin-top: 10px;
       }
     }
@@ -362,7 +356,7 @@
       border-color: rgba(255, 255, 255, 0.25);
     }
 
-    /* AUTH CARD (Sign In & Create Section) */
+    /* AUTH CARD */
     .hero-auth-card {
       background: var(--bg-card);
       border: 1px solid var(--border-card);
@@ -408,7 +402,6 @@
       color: #a5b4fc;
     }
 
-    /* Segmented Navigation Tabs */
     .auth-tabs {
       display: flex;
       background: rgba(11, 15, 25, 0.7);
@@ -444,7 +437,6 @@
       box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
     }
 
-    /* 1-Tap Demo Quickfill Chips */
     .quick-chips-box {
       margin-bottom: 16px;
     }
@@ -498,7 +490,6 @@
       color: #fff;
     }
 
-    /* Form Styles */
     .form-group {
       margin-bottom: 14px;
     }
@@ -534,7 +525,7 @@
       border-radius: 10px;
       color: #fff;
       font-family: var(--font-main);
-      font-size: 0.95rem; /* >=16px avoids iOS Safari zoom */
+      font-size: 0.95rem;
       transition: all 0.2s ease;
     }
 
@@ -568,7 +559,6 @@
       }
     }
 
-    /* Role Pills Selector */
     .role-pills {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -621,7 +611,6 @@
       box-shadow: 0 8px 25px rgba(99, 102, 241, 0.55);
     }
 
-    /* Live Auth Status Alert */
     .auth-alert-box {
       margin-top: 14px;
       padding: 12px 14px;
@@ -648,7 +637,6 @@
       color: #f87171;
     }
 
-    /* 1-Tap Demo Tab Cards */
     .demo-cards-list {
       display: flex;
       flex-direction: column;
@@ -701,9 +689,141 @@
       background: #4f46e5;
     }
 
-    /* ML INTERACTIVE SIMULATOR (Real-time Calculator) */
+    /* AUTHENTICATED PORTAL DASHBOARD (REVEALED UPON SIGN IN) */
+    #authenticated-portal-view {
+      display: none;
+      animation: fadeIn 0.35s ease;
+    }
+
+    .dashboard-header-bar {
+      background: linear-gradient(135deg, rgba(30, 41, 59, 0.9) 0%, rgba(15, 23, 42, 0.95) 100%);
+      border: 1px solid var(--border-accent);
+      border-radius: 18px;
+      padding: 20px 24px;
+      margin-bottom: 24px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .dash-user-profile {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .dash-avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      background: var(--primary-gradient);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+    }
+
+    .dash-username {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: #fff;
+    }
+
+    .dash-meta {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    .dash-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .btn-signout {
+      padding: 8px 16px;
+      border-radius: 10px;
+      background: rgba(239, 68, 68, 0.15);
+      border: 1px solid rgba(239, 68, 68, 0.35);
+      color: #f87171;
+      font-weight: 700;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .btn-signout:hover {
+      background: rgba(239, 68, 68, 0.25);
+      color: #fff;
+    }
+
+    /* Dashboard Metrics Cards */
+    .dash-metric-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .metric-card-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: 16px;
+      padding: 20px;
+      position: relative;
+    }
+
+    .metric-card-icon {
+      font-size: 1.6rem;
+      margin-bottom: 8px;
+    }
+
+    .metric-card-val {
+      font-size: 1.6rem;
+      font-weight: 800;
+      font-family: var(--font-mono);
+      color: #fff;
+    }
+
+    .metric-card-lbl {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    /* Trajectory Alert Box */
+    .trajectory-alert-card {
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.12) 0%, rgba(6, 78, 59, 0.2) 100%);
+      border: 1px solid rgba(16, 185, 129, 0.35);
+      border-radius: 16px;
+      padding: 20px 22px;
+      margin-bottom: 28px;
+    }
+
+    .traj-title {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: #34d399;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+
+    .traj-desc {
+      font-size: 0.92rem;
+      color: #e2e8f0;
+      line-height: 1.6;
+    }
+
+    /* ML INTERACTIVE SIMULATOR */
     .section-spacing {
-      padding: 40px 0;
+      padding: 30px 0;
     }
 
     .section-header {
@@ -809,7 +929,6 @@
       border: 2px solid #fff;
     }
 
-    /* Prediction Result Output Card */
     .pred-output-card {
       background: linear-gradient(135deg, rgba(30, 41, 59, 0.9) 0%, rgba(15, 23, 42, 0.95) 100%);
       border: 1px solid rgba(99, 102, 241, 0.35);
@@ -920,7 +1039,7 @@
       flex-grow: 1;
     }
 
-    /* Demo Table */
+    /* Tables */
     .table-container {
       background: var(--bg-card);
       border: 1px solid var(--border-card);
@@ -928,6 +1047,7 @@
       padding: 20px;
       overflow-x: auto;
       -webkit-overflow-scrolling: touch;
+      margin-bottom: 24px;
     }
 
     table {
@@ -1016,298 +1136,584 @@
     </div>
   </header>
 
-  <!-- Main Hero Section (Dynamic: Auth Card at Top on Mobile!) -->
+  <!-- Main Container -->
   <main class="container hero-section">
 
-    <!-- Mobile Concise Intro Header (only on narrow screens) -->
-    <div class="hero-mobile-header">
-      <div class="pill-badge">
-        <span>⚡ 15-Feature ML Core • R² 94.02%</span>
+    <!-- ============================================================== -->
+    <!-- VIEW A: GUEST / LANDING VIEW (HERO + SIGN IN / REGISTER AT TOP) -->
+    <!-- ============================================================== -->
+    <div id="guest-landing-view">
+      <!-- Mobile Concise Intro Header -->
+      <div class="hero-mobile-header">
+        <div class="pill-badge">
+          <span>⚡ 15-Feature ML Core • R² 94.02%</span>
+        </div>
+        <h1 class="hero-title" style="font-size: 1.85rem; margin-bottom: 8px;">
+          Intelligent Performance <br>
+          <span class="gradient-text">Forecasting & Portals</span>
+        </h1>
+        <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 16px;">
+          Select your role or sign in below for real-time grade forecasts and trajectory tracking.
+        </p>
       </div>
-      <h1 class="hero-title" style="font-size: 1.85rem; margin-bottom: 8px;">
-        Intelligent Performance <br>
-        <span class="gradient-text">Forecasting & Portals</span>
-      </h1>
-      <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 16px;">
-        Select your role or sign in below for real-time grade forecasts and trajectory tracking.
-      </p>
+
+      <div class="hero-grid">
+        <!-- AUTH CARD: SIGN IN & CREATE ACCOUNT (TOP ON MOBILE) -->
+        <div class="hero-auth-card" id="auth-portal-card">
+          <div class="auth-card-header">
+            <div class="auth-card-title">
+              <span>🔐</span> Portal Access
+            </div>
+            <span class="auth-card-badge" id="active-role-indicator">👨‍🎓 Student Role</span>
+          </div>
+
+          <!-- Segmented Tab Navigation -->
+          <div class="auth-tabs" role="tablist">
+            <button class="auth-tab-btn active" id="tab-btn-signin" onclick="switchAuthTab('signin')">
+              <span>🔑</span> Sign In
+            </button>
+            <button class="auth-tab-btn" id="tab-btn-register" onclick="switchAuthTab('register')">
+              <span>📝</span> Create Account
+            </button>
+            <button class="auth-tab-btn" id="tab-btn-demo" onclick="switchAuthTab('demo')">
+              <span>⚡</span> 1-Tap Demo
+            </button>
+          </div>
+
+          <!-- 1. SIGN IN TAB CONTENT -->
+          <div id="auth-view-signin">
+            <!-- 1-Tap Quick Persona Fillers -->
+            <div class="quick-chips-box">
+              <div class="quick-chips-label">
+                <span>⚡ 1-Tap Autofill:</span>
+                <span style="color:#818cf8; text-transform:none;">Tap to populate</span>
+              </div>
+              <div class="chips-grid">
+                <button class="chip-btn active" onclick="autofillLogin('student@gmail.com', 'student123', 'student')">
+                  👨‍🎓 Student
+                </button>
+                <button class="chip-btn" onclick="autofillLogin('teacher@gmail.com', 'teacher123', 'teacher')">
+                  👩‍🏫 Faculty
+                </button>
+                <button class="chip-btn" onclick="autofillLogin('official@gmail.com', 'official123', 'official')">
+                  🏛️ Official
+                </button>
+                <button class="chip-btn" onclick="autofillLogin('dean.academics@edupredict.ai', 'dean123', 'dean')">
+                  🎓 Dean
+                </button>
+              </div>
+            </div>
+
+            <form id="signin-form" onsubmit="handleSignIn(event)">
+              <div class="form-group">
+                <label class="form-label" for="signin-email">Institutional Email</label>
+                <div class="input-wrapper">
+                  <span class="input-icon">✉️</span>
+                  <input type="email" id="signin-email" class="form-input" value="student@gmail.com" placeholder="name@institution.edu" required autocomplete="email" />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+                  <label class="form-label" for="signin-password" style="margin-bottom:0;">Password</label>
+                  <a href="#demo-creds-sec" style="font-size:0.75rem; color:#818cf8; text-decoration:none;">View Demo Passwords</a>
+                </div>
+                <div class="input-wrapper">
+                  <span class="input-icon">🔒</span>
+                  <input type="password" id="signin-password" class="form-input" value="student123" placeholder="Enter password" required autocomplete="current-password" />
+                  <button type="button" class="btn-pwd-toggle" onclick="togglePasswordVisibility('signin-password')">👁️</button>
+                </div>
+              </div>
+
+              <button type="submit" class="btn-submit-auth" id="btn-signin-submit">
+                <span>Sign In to Portal</span>
+                <span>→</span>
+              </button>
+            </form>
+
+            <div id="signin-alert" class="auth-alert-box"></div>
+          </div>
+
+          <!-- 2. CREATE ACCOUNT TAB CONTENT -->
+          <div id="auth-view-register" style="display: none;">
+            <form id="register-form" onsubmit="handleRegister(event)">
+              <label class="form-label">Select Account Role</label>
+              <div class="role-pills">
+                <button type="button" class="role-radio-btn active" id="role-choice-student" onclick="selectRegRole('student')">👨‍🎓 Student</button>
+                <button type="button" class="role-radio-btn" id="role-choice-teacher" onclick="selectRegRole('teacher')">👩‍🏫 Faculty</button>
+                <button type="button" class="role-radio-btn" id="role-choice-official" onclick="selectRegRole('official')">🏛️ Official</button>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Full Name</label>
+                <div class="input-wrapper">
+                  <span class="input-icon">👤</span>
+                  <input type="text" id="reg-name" class="form-input" placeholder="e.g. John Doe" required />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Institutional Email</label>
+                <div class="input-wrapper">
+                  <span class="input-icon">✉️</span>
+                  <input type="email" id="reg-email" class="form-input" placeholder="e.g. student@institution.edu" required />
+                </div>
+              </div>
+
+              <!-- Dynamic Role Details: Student -->
+              <div id="reg-student-fields">
+                <div class="form-row-2 form-group">
+                  <div>
+                    <label class="form-label">Roll Number</label>
+                    <input type="text" id="reg-roll" class="form-input" style="padding-left:14px;" placeholder="e.g. BETN1AI25099" />
+                  </div>
+                  <div>
+                    <label class="form-label">Enrolled Program</label>
+                    <select id="reg-course" class="form-select" style="padding-left:14px;">
+                      <option>B.Tech AIML</option>
+                      <option>B.Tech CSE</option>
+                      <option>B.Tech IT</option>
+                      <option>B.Sc Data Science</option>
+                      <option>BCA</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Dynamic Role Details: Teacher -->
+              <div id="reg-teacher-fields" style="display: none;">
+                <div class="form-row-2 form-group">
+                  <div>
+                    <label class="form-label">Employee ID</label>
+                    <input type="text" id="reg-empid" class="form-input" style="padding-left:14px;" placeholder="e.g. EMP-AI-104" />
+                  </div>
+                  <div>
+                    <label class="form-label">Department</label>
+                    <input type="text" id="reg-dept" class="form-input" style="padding-left:14px;" placeholder="e.g. Computer Science" />
+                  </div>
+                </div>
+              </div>
+
+              <!-- Dynamic Role Details: Official -->
+              <div id="reg-official-fields" style="display: none;">
+                <div class="form-group">
+                  <label class="form-label">Official Admin Key</label>
+                  <div class="input-wrapper">
+                    <span class="input-icon">🔑</span>
+                    <input type="password" id="reg-adminkey" class="form-input" placeholder="Default passkey: OFFICIAL123" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-row-2 form-group">
+                <div>
+                  <label class="form-label">Password</label>
+                  <div class="input-wrapper">
+                    <span class="input-icon">🔒</span>
+                    <input type="password" id="reg-pass" class="form-input" placeholder="Min 6 chars" required minlength="6" />
+                  </div>
+                </div>
+                <div>
+                  <label class="form-label">Confirm Password</label>
+                  <div class="input-wrapper">
+                    <span class="input-icon">🔒</span>
+                    <input type="password" id="reg-confirm" class="form-input" placeholder="Repeat password" required />
+                  </div>
+                </div>
+              </div>
+
+              <button type="submit" class="btn-submit-auth">
+                <span>Create Account & Register Profile</span>
+                <span>✓</span>
+              </button>
+            </form>
+
+            <div id="register-alert" class="auth-alert-box"></div>
+          </div>
+
+          <!-- 3. 1-TAP DEMO TAB CONTENT -->
+          <div id="auth-view-demo" style="display: none;">
+            <div class="demo-cards-list">
+              <div class="demo-card-item">
+                <div>
+                  <div class="demo-info-title">👨‍🎓 Student (Improving Trajectory)</div>
+                  <div class="demo-info-email">student@gmail.com • student123</div>
+                </div>
+                <button class="demo-btn-tap" onclick="autofillAndLaunch('student@gmail.com', 'student123', 'student')">
+                  Sign In ⚡
+                </button>
+              </div>
+
+              <div class="demo-card-item">
+                <div>
+                  <div class="demo-info-title">👩‍🏫 Faculty / Professor</div>
+                  <div class="demo-info-email">teacher@gmail.com • teacher123</div>
+                </div>
+                <button class="demo-btn-tap" onclick="autofillAndLaunch('teacher@gmail.com', 'teacher123', 'teacher')">
+                  Sign In ⚡
+                </button>
+              </div>
+
+              <div class="demo-card-item">
+                <div>
+                  <div class="demo-info-title">🏛️ Campus Director (Official)</div>
+                  <div class="demo-info-email">official@gmail.com • official123</div>
+                </div>
+                <button class="demo-btn-tap" onclick="autofillAndLaunch('official@gmail.com', 'official123', 'official')">
+                  Sign In ⚡
+                </button>
+              </div>
+
+              <div class="demo-card-item">
+                <div>
+                  <div class="demo-info-title">🎓 Dean of Academics</div>
+                  <div class="demo-info-email">dean.academics@edupredict.ai • dean123</div>
+                </div>
+                <button class="demo-btn-tap" onclick="autofillAndLaunch('dean.academics@edupredict.ai', 'dean123', 'dean')">
+                  Sign In ⚡
+                </button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- DESKTOP HERO CONTENT & OVERVIEW -->
+        <div class="hero-content">
+          <div class="pill-badge" style="display: inline-flex;">
+            <span>⚡ Multi-Factor Machine Learning & Sequential Analytics</span>
+          </div>
+
+          <h1 class="hero-title">
+            Intelligent Student Performance <br>
+            <span class="gradient-text">Forecasting & Decision Support</span>
+          </h1>
+
+          <p class="hero-subtitle">
+            An end-to-end multi-stakeholder analytics suite featuring Scikit-Learn regression,
+            longitudinal trajectory intelligence, and tailored portals for Students, Faculty, and Institutional Leadership.
+          </p>
+
+          <!-- Stats Row -->
+          <div class="hero-stats-row">
+            <div class="stat-pill">
+              <div class="stat-pill-val">94.02%</div>
+              <div class="stat-pill-lbl">Model R² Score</div>
+            </div>
+            <div class="stat-pill">
+              <div class="stat-pill-val">15</div>
+              <div class="stat-pill-lbl">ML Features</div>
+            </div>
+            <div class="stat-pill">
+              <div class="stat-pill-val">4 Roles</div>
+              <div class="stat-pill-lbl">Portal Access</div>
+            </div>
+          </div>
+
+          <!-- Action Links -->
+          <div class="hero-actions-row">
+            <a href="#auth-portal-card" class="btn-cta-primary">
+              🚀 Access EduPredict AI Portal
+            </a>
+            <a href="#simulator-section" class="btn-cta-secondary">
+              🔮 Try Live ML Predictor
+            </a>
+          </div>
+
+          <div style="margin-top: 24px; padding: 14px 16px; border-radius: 12px; background: rgba(99, 102, 241, 0.08); border: 1px solid rgba(99, 102, 241, 0.2); font-size: 0.86rem; color: #cbd5e1;">
+            ⚡ <strong>Autonomous Academic Intelligence:</strong> Real-time ML grade forecasting, multi-session longitudinal progression tracking, and role-based institutional decision support.
+          </div>
+        </div>
+
+      </div>
     </div>
 
-    <div class="hero-grid">
-
-      <!-- ============================================== -->
-      <!-- AUTH CARD: SIGN IN & CREATE ACCOUNT (TOP ON MOBILE!) -->
-      <!-- ============================================== -->
-      <div class="hero-auth-card" id="auth-portal-card">
-        <div class="auth-card-header">
-          <div class="auth-card-title">
-            <span>🔐</span> Portal Access
-          </div>
-          <span class="auth-card-badge" id="active-role-indicator">👨‍🎓 Student Role</span>
-        </div>
-
-        <!-- Segmented Tab Navigation -->
-        <div class="auth-tabs" role="tablist">
-          <button class="auth-tab-btn active" id="tab-btn-signin" onclick="switchAuthTab('signin')">
-            <span>🔑</span> Sign In
-          </button>
-          <button class="auth-tab-btn" id="tab-btn-register" onclick="switchAuthTab('register')">
-            <span>📝</span> Create Account
-          </button>
-          <button class="auth-tab-btn" id="tab-btn-demo" onclick="switchAuthTab('demo')">
-            <span>⚡</span> 1-Tap Demo
-          </button>
-        </div>
-
-        <!-- 1. SIGN IN TAB CONTENT -->
-        <div id="auth-view-signin">
-          <!-- 1-Tap Quick Persona Fillers -->
-          <div class="quick-chips-box">
-            <div class="quick-chips-label">
-              <span>⚡ 1-Tap Autofill:</span>
-              <span style="color:#818cf8; text-transform:none;">Tap to populate</span>
-            </div>
-            <div class="chips-grid">
-              <button class="chip-btn active" onclick="autofillLogin('student@gmail.com', 'student123', 'student')">
-                👨‍🎓 Student
-              </button>
-              <button class="chip-btn" onclick="autofillLogin('teacher@gmail.com', 'teacher123', 'teacher')">
-                👩‍🏫 Faculty
-              </button>
-              <button class="chip-btn" onclick="autofillLogin('official@gmail.com', 'official123', 'official')">
-                🏛️ Official
-              </button>
-              <button class="chip-btn" onclick="autofillLogin('dean.academics@edupredict.ai', 'dean123', 'dean')">
-                🎓 Dean
-              </button>
-            </div>
-          </div>
-
-          <form id="signin-form" onsubmit="handleSignIn(event)">
-            <div class="form-group">
-              <label class="form-label" for="signin-email">Institutional Email</label>
-              <div class="input-wrapper">
-                <span class="input-icon">✉️</span>
-                <input type="email" id="signin-email" class="form-input" value="student@gmail.com" placeholder="name@institution.edu" required autocomplete="email" />
-              </div>
-            </div>
-
-            <div class="form-group">
-              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
-                <label class="form-label" for="signin-password" style="margin-bottom:0;">Password</label>
-                <a href="#demo-creds-sec" style="font-size:0.75rem; color:#818cf8; text-decoration:none;">View Demo Passwords</a>
-              </div>
-              <div class="input-wrapper">
-                <span class="input-icon">🔒</span>
-                <input type="password" id="signin-password" class="form-input" value="student123" placeholder="Enter password" required autocomplete="current-password" />
-                <button type="button" class="btn-pwd-toggle" onclick="togglePasswordVisibility('signin-password')">👁️</button>
-              </div>
-            </div>
-
-            <button type="submit" class="btn-submit-auth" id="btn-signin-submit">
-              <span>Sign In to Portal</span>
-              <span>→</span>
-            </button>
-          </form>
-
-          <div id="signin-alert" class="auth-alert-box"></div>
-        </div>
-
-        <!-- 2. CREATE ACCOUNT TAB CONTENT -->
-        <div id="auth-view-register" style="display: none;">
-          <form id="register-form" onsubmit="handleRegister(event)">
-            <!-- Account Role Selection -->
-            <label class="form-label">Select Account Role</label>
-            <div class="role-pills">
-              <button type="button" class="role-radio-btn active" id="role-choice-student" onclick="selectRegRole('student')">👨‍🎓 Student</button>
-              <button type="button" class="role-radio-btn" id="role-choice-teacher" onclick="selectRegRole('teacher')">👩‍🏫 Faculty</button>
-              <button type="button" class="role-radio-btn" id="role-choice-official" onclick="selectRegRole('official')">🏛️ Official</button>
-            </div>
-
-            <div class="form-group">
-              <label class="form-label">Full Name</label>
-              <div class="input-wrapper">
-                <span class="input-icon">👤</span>
-                <input type="text" id="reg-name" class="form-input" placeholder="e.g. John Doe" required />
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label class="form-label">Institutional Email</label>
-              <div class="input-wrapper">
-                <span class="input-icon">✉️</span>
-                <input type="email" id="reg-email" class="form-input" placeholder="e.g. student@institution.edu" required />
-              </div>
-            </div>
-
-            <!-- Dynamic Role Details: Student -->
-            <div id="reg-student-fields">
-              <div class="form-row-2 form-group">
-                <div>
-                  <label class="form-label">Roll Number</label>
-                  <input type="text" id="reg-roll" class="form-input" style="padding-left:14px;" placeholder="e.g. BETN1AI25099" />
-                </div>
-                <div>
-                  <label class="form-label">Enrolled Program</label>
-                  <select id="reg-course" class="form-select" style="padding-left:14px;">
-                    <option>B.Tech AIML</option>
-                    <option>B.Tech CSE</option>
-                    <option>B.Tech IT</option>
-                    <option>B.Sc Data Science</option>
-                    <option>BCA</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-
-            <!-- Dynamic Role Details: Teacher -->
-            <div id="reg-teacher-fields" style="display: none;">
-              <div class="form-row-2 form-group">
-                <div>
-                  <label class="form-label">Employee ID</label>
-                  <input type="text" id="reg-empid" class="form-input" style="padding-left:14px;" placeholder="e.g. EMP-AI-104" />
-                </div>
-                <div>
-                  <label class="form-label">Department</label>
-                  <input type="text" id="reg-dept" class="form-input" style="padding-left:14px;" placeholder="e.g. Computer Science" />
-                </div>
-              </div>
-            </div>
-
-            <!-- Dynamic Role Details: Official -->
-            <div id="reg-official-fields" style="display: none;">
-              <div class="form-group">
-                <label class="form-label">Official Admin Key</label>
-                <div class="input-wrapper">
-                  <span class="input-icon">🔑</span>
-                  <input type="password" id="reg-adminkey" class="form-input" placeholder="Default passkey: OFFICIAL123" />
-                </div>
-              </div>
-            </div>
-
-            <div class="form-row-2 form-group">
-              <div>
-                <label class="form-label">Password</label>
-                <div class="input-wrapper">
-                  <span class="input-icon">🔒</span>
-                  <input type="password" id="reg-pass" class="form-input" placeholder="Min 6 chars" required minlength="6" />
-                </div>
-              </div>
-              <div>
-                <label class="form-label">Confirm Password</label>
-                <div class="input-wrapper">
-                  <span class="input-icon">🔒</span>
-                  <input type="password" id="reg-confirm" class="form-input" placeholder="Repeat password" required />
-                </div>
-              </div>
-            </div>
-
-            <button type="submit" class="btn-submit-auth">
-              <span>Create Account & Register Profile</span>
-              <span>✓</span>
-            </button>
-          </form>
-
-          <div id="register-alert" class="auth-alert-box"></div>
-        </div>
-
-        <!-- 3. 1-TAP DEMO TAB CONTENT -->
-        <div id="auth-view-demo" style="display: none;">
-          <div class="demo-cards-list">
-            <div class="demo-card-item">
-              <div>
-                <div class="demo-info-title">👨‍🎓 Student (Improving Trajectory)</div>
-                <div class="demo-info-email">student@gmail.com • student123</div>
-              </div>
-              <button class="demo-btn-tap" onclick="autofillAndLaunch('student@gmail.com', 'student123', 'student')">
-                Open ⚡
-              </button>
-            </div>
-
-            <div class="demo-card-item">
-              <div>
-                <div class="demo-info-title">👩‍🏫 Faculty / Professor</div>
-                <div class="demo-info-email">teacher@gmail.com • teacher123</div>
-              </div>
-              <button class="demo-btn-tap" onclick="autofillAndLaunch('teacher@gmail.com', 'teacher123', 'teacher')">
-                Open ⚡
-              </button>
-            </div>
-
-            <div class="demo-card-item">
-              <div>
-                <div class="demo-info-title">🏛️ Campus Director (Official)</div>
-                <div class="demo-info-email">official@gmail.com • official123</div>
-              </div>
-              <button class="demo-btn-tap" onclick="autofillAndLaunch('official@gmail.com', 'official123', 'official')">
-                Open ⚡
-              </button>
-            </div>
-
-            <div class="demo-card-item">
-              <div>
-                <div class="demo-info-title">🎓 Dean of Academics</div>
-                <div class="demo-info-email">dean.academics@edupredict.ai • dean123</div>
-              </div>
-              <button class="demo-btn-tap" onclick="autofillAndLaunch('dean.academics@edupredict.ai', 'dean123', 'dean')">
-                Open ⚡
-              </button>
-            </div>
+    <!-- ============================================================== -->
+    <!-- VIEW B: AUTHENTICATED ROLE DASHBOARD (REVEALED UPON SIGN IN!) -->
+    <!-- ============================================================== -->
+    <div id="authenticated-portal-view">
+      <!-- Portal Top Header Bar -->
+      <div class="dashboard-header-bar">
+        <div class="dash-user-profile">
+          <div class="dash-avatar" id="dash-avatar-icon">👨‍🎓</div>
+          <div>
+            <div class="dash-username" id="dash-display-name">Student One (Demo)</div>
+            <div class="dash-meta" id="dash-display-meta">Roll: BETN1AI25074 • B.Tech AIML (Semester 3, Section D)</div>
           </div>
         </div>
-
-      </div>
-
-      <!-- ============================================== -->
-      <!-- DESKTOP HERO CONTENT & OVERVIEW -->
-      <!-- ============================================== -->
-      <div class="hero-content">
-        <div class="pill-badge" style="display: inline-flex;">
-          <span>⚡ Multi-Factor Machine Learning & Sequential Analytics</span>
-        </div>
-
-        <h1 class="hero-title">
-          Intelligent Student Performance <br>
-          <span class="gradient-text">Forecasting & Decision Support</span>
-        </h1>
-
-        <p class="hero-subtitle">
-          An end-to-end multi-stakeholder analytics suite featuring Scikit-Learn regression,
-          longitudinal trajectory intelligence, and tailored portals for Students, Faculty, and Institutional Leadership.
-        </p>
-
-        <!-- Stats Row -->
-        <div class="hero-stats-row">
-          <div class="stat-pill">
-            <div class="stat-pill-val">94.02%</div>
-            <div class="stat-pill-lbl">Model R² Score</div>
-          </div>
-          <div class="stat-pill">
-            <div class="stat-pill-val">15</div>
-            <div class="stat-pill-lbl">ML Features</div>
-          </div>
-          <div class="stat-pill">
-            <div class="stat-pill-val">4 Roles</div>
-            <div class="stat-pill-lbl">Portal Access</div>
-          </div>
-        </div>
-
-        <!-- Action Links -->
-        <div class="hero-actions-row">
-          <a href="#auth-portal-card" class="btn-cta-primary">
-            🚀 Access EduPredict AI Portal
-          </a>
-          <a href="#simulator-section" class="btn-cta-secondary">
-            🔮 Try Live ML Predictor
-          </a>
-        </div>
-
-        <!-- Platform Overview Tip -->
-        <div style="margin-top: 24px; padding: 14px 16px; border-radius: 12px; background: rgba(99, 102, 241, 0.08); border: 1px solid rgba(99, 102, 241, 0.2); font-size: 0.86rem; color: #cbd5e1;">
-          ⚡ <strong>Autonomous Academic Intelligence:</strong> Real-time ML grade forecasting, multi-session longitudinal progression tracking, and role-based institutional decision support.
+        <div class="dash-actions">
+          <span class="auth-card-badge" id="dash-badge-role">STUDENT PORTAL</span>
+          <button class="btn-signout" onclick="handleSignOut()">🚪 Sign Out</button>
         </div>
       </div>
 
+      <!-- 1. STUDENT DASHBOARD VIEW -->
+      <div id="dash-content-student">
+        <!-- Metric Cards Grid -->
+        <div class="dash-metric-grid">
+          <div class="metric-card-box">
+            <div class="metric-card-icon">🎯</div>
+            <div class="metric-card-val" style="color:#10b981;">GRADE A</div>
+            <div class="metric-card-lbl">Current Projected Grade (92.8%)</div>
+          </div>
+          <div class="metric-card-box">
+            <div class="metric-card-icon">📈</div>
+            <div class="metric-card-val" style="color:#38bdf8;">+40.0%</div>
+            <div class="metric-card-lbl">Exam Score Shift (52% ➔ 92%)</div>
+          </div>
+          <div class="metric-card-box">
+            <div class="metric-card-icon">📅</div>
+            <div class="metric-card-val">94.0%</div>
+            <div class="metric-card-lbl">Session Attendance Record</div>
+          </div>
+          <div class="metric-card-box">
+            <div class="metric-card-icon">⏳</div>
+            <div class="metric-card-val">22.0 hrs</div>
+            <div class="metric-card-lbl">Weekly Study Investment</div>
+          </div>
+        </div>
+
+        <!-- Trajectory Intelligence Narrative Card -->
+        <div class="trajectory-alert-card">
+          <div class="traj-title">
+            <span>✨</span> AI Trajectory Diagnostic: Rapid Honors Ascendance (+30.4% Overall Delta)
+          </div>
+          <p class="traj-desc">
+            Your consecutive 5-session progression displays a dramatic trajectory jump from <strong>Grade D (62.4%)</strong> to <strong>Grade A Honors (92.8%)</strong>. 
+            Systematic increases in weekly self-study (+15.0 hrs) and active assignment completion have elevated your mastery into the top 5% cohort.
+          </p>
+        </div>
+
+        <!-- Historical Progression Table -->
+        <div class="table-container">
+          <div style="font-size:1.1rem; font-weight:800; color:#fff; margin-bottom:12px; display:flex; justify-content:space-between; align-items:center;">
+            <span>📜 Historical Sequential Test Sessions</span>
+            <span style="font-size:0.78rem; color:#818cf8; font-weight:600;">5 Evaluated Milestones</span>
+          </div>
+          <table>
+            <thead>
+              <tr>
+                <th>Session #</th>
+                <th>Study Dedication</th>
+                <th>Attendance</th>
+                <th>Midterm Exam</th>
+                <th>Assignment %</th>
+                <th>Predicted Grade</th>
+                <th>Status Stage</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Session 05</strong> (Latest)</td>
+                <td><span class="code-pill">22.0 hrs/wk</span></td>
+                <td><span class="code-pill">94.0%</span></td>
+                <td><span class="code-pill" style="color:#34d399;">92.0%</span></td>
+                <td>96.0%</td>
+                <td><span class="badge-role" style="background:rgba(16, 185, 129, 0.2); color:#10b981;">Grade A (92.8%)</span></td>
+                <td><span style="color:#10b981; font-weight:700;">Top Honors Tier</span></td>
+              </tr>
+              <tr>
+                <td><strong>Session 04</strong></td>
+                <td><span class="code-pill">18.0 hrs/wk</span></td>
+                <td><span class="code-pill">87.0%</span></td>
+                <td><span class="code-pill" style="color:#38bdf8;">83.0%</span></td>
+                <td>88.0%</td>
+                <td><span class="badge-role" style="background:rgba(56, 189, 248, 0.2); color:#38bdf8;">Grade B+ (85.1%)</span></td>
+                <td><span style="color:#38bdf8; font-weight:700;">Accelerating</span></td>
+              </tr>
+              <tr>
+                <td><strong>Session 03</strong></td>
+                <td><span class="code-pill">14.0 hrs/wk</span></td>
+                <td><span class="code-pill">79.0%</span></td>
+                <td><span class="code-pill">72.0%</span></td>
+                <td>78.0%</td>
+                <td><span class="badge-role" style="background:rgba(56, 189, 248, 0.15); color:#38bdf8;">Grade B (78.5%)</span></td>
+                <td><span style="color:#cbd5e1;">Steady Growth</span></td>
+              </tr>
+              <tr>
+                <td><strong>Session 02</strong></td>
+                <td><span class="code-pill">10.5 hrs/wk</span></td>
+                <td><span class="code-pill">71.0%</span></td>
+                <td><span class="code-pill">63.0%</span></td>
+                <td>68.0%</td>
+                <td><span class="badge-role" style="background:rgba(245, 158, 11, 0.2); color:#f59e0b;">Grade C (71.2%)</span></td>
+                <td><span style="color:#f59e0b;">Progressing</span></td>
+              </tr>
+              <tr>
+                <td><strong>Session 01</strong> (Baseline)</td>
+                <td><span class="code-pill">7.0 hrs/wk</span></td>
+                <td><span class="code-pill">62.0%</span></td>
+                <td><span class="code-pill" style="color:#f87171;">52.0%</span></td>
+                <td>58.0%</td>
+                <td><span class="badge-role" style="background:rgba(239, 68, 68, 0.2); color:#ef4444;">Grade D (62.4%)</span></td>
+                <td><span style="color:#ef4444;">Initial Baseline</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- 2. FACULTY DASHBOARD VIEW -->
+      <div id="dash-content-teacher" style="display:none;">
+        <div class="dash-metric-grid">
+          <div class="metric-card-box">
+            <div class="metric-card-icon">👨‍🎓</div>
+            <div class="metric-card-val">13 Students</div>
+            <div class="metric-card-lbl">Assigned Class Roster</div>
+          </div>
+          <div class="metric-card-box">
+            <div class="metric-card-icon">📊</div>
+            <div class="metric-card-val" style="color:#10b981;">84.6%</div>
+            <div class="metric-card-lbl">Cohort Pass Rate</div>
+          </div>
+          <div class="metric-card-box">
+            <div class="metric-card-icon">⭐</div>
+            <div class="metric-card-val" style="color:#38bdf8;">46.2%</div>
+            <div class="metric-card-lbl">High Honors (Grade A)</div>
+          </div>
+          <div class="metric-card-box">
+            <div class="metric-card-icon">⚠️</div>
+            <div class="metric-card-val" style="color:#ef4444;">1 Student</div>
+            <div class="metric-card-lbl">At-Risk Intervention Needed</div>
+          </div>
+        </div>
+
+        <div class="table-container">
+          <div style="font-size:1.1rem; font-weight:800; color:#fff; margin-bottom:12px;">
+            👩‍🏫 Department Class Directory & Predictions Roster
+          </div>
+          <table>
+            <thead>
+              <tr>
+                <th>Roll Number</th>
+                <th>Student Name</th>
+                <th>Program / Course</th>
+                <th>Semester</th>
+                <th>Section</th>
+                <th>Projected Grade</th>
+                <th>Risk Category</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="code-pill">BETN1AI25074</span></td>
+                <td><strong>Student One (Demo)</strong></td>
+                <td>B.Tech AIML</td>
+                <td>3</td>
+                <td>D</td>
+                <td><span class="badge-role" style="background:rgba(16, 185, 129, 0.2); color:#10b981;">Grade A (92.8%)</span></td>
+                <td><span style="color:#10b981; font-weight:700;">High Honors</span></td>
+              </tr>
+              <tr>
+                <td><span class="code-pill">BETN1AI25001</span></td>
+                <td><strong>Aarav Sharma</strong></td>
+                <td>B.Tech AIML</td>
+                <td>3</td>
+                <td>A</td>
+                <td><span class="badge-role" style="background:rgba(16, 185, 129, 0.2); color:#10b981;">Grade A (89.5%)</span></td>
+                <td><span style="color:#10b981; font-weight:700;">Steady High</span></td>
+              </tr>
+              <tr>
+                <td><span class="code-pill">BETN1AI25002</span></td>
+                <td><strong>Diya Patel</strong></td>
+                <td>B.Tech AIML</td>
+                <td>3</td>
+                <td>A</td>
+                <td><span class="badge-role" style="background:rgba(16, 185, 129, 0.2); color:#10b981;">Grade A (87.2%)</span></td>
+                <td><span style="color:#10b981; font-weight:700;">Improving</span></td>
+              </tr>
+              <tr>
+                <td><span class="code-pill">BETN1AI25003</span></td>
+                <td><strong>Ishaan Verma</strong></td>
+                <td>B.Tech AIML</td>
+                <td>3</td>
+                <td>B</td>
+                <td><span class="badge-role" style="background:rgba(56, 189, 248, 0.2); color:#38bdf8;">Grade B (76.8%)</span></td>
+                <td><span style="color:#38bdf8;">Fluctuating</span></td>
+              </tr>
+              <tr>
+                <td><span class="code-pill">BETN1CS25013</span></td>
+                <td><strong>Sanya Kapoor</strong></td>
+                <td>B.Tech CSE</td>
+                <td>5</td>
+                <td>B</td>
+                <td><span class="badge-role" style="background:rgba(239, 68, 68, 0.2); color:#ef4444;">Grade D (54.0%)</span></td>
+                <td><span style="color:#ef4444; font-weight:700;">At-Risk (Intervene)</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- 3. OFFICIAL DASHBOARD VIEW -->
+      <div id="dash-content-official" style="display:none;">
+        <div class="dash-metric-grid">
+          <div class="metric-card-box">
+            <div class="metric-card-icon">🏛️</div>
+            <div class="metric-card-val">4 Departments</div>
+            <div class="metric-card-lbl">Monitored Academic Units</div>
+          </div>
+          <div class="metric-card-box">
+            <div class="metric-card-icon">📊</div>
+            <div class="metric-card-val" style="color:#10b981;">88.2%</div>
+            <div class="metric-card-lbl">Overall Institutional Pass Rate</div>
+          </div>
+          <div class="metric-card-box">
+            <div class="metric-card-icon">📅</div>
+            <div class="metric-card-val">82.4%</div>
+            <div class="metric-card-lbl">Campus Attendance Average</div>
+          </div>
+          <div class="metric-card-box">
+            <div class="metric-card-icon">⚡</div>
+            <div class="metric-card-val" style="color:#38bdf8;">65+</div>
+            <div class="metric-card-lbl">Live ML Predictions Logged</div>
+          </div>
+        </div>
+
+        <div class="table-container">
+          <div style="font-size:1.1rem; font-weight:800; color:#fff; margin-bottom:12px;">
+            🏛️ Cross-Department Performance & Governance Audit
+          </div>
+          <table>
+            <thead>
+              <tr>
+                <th>Department</th>
+                <th>Lead Faculty</th>
+                <th>Enrolled Students</th>
+                <th>Pass Rate</th>
+                <th>Attendance Avg</th>
+                <th>Intervention Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Artificial Intelligence & Data Science</strong></td>
+                <td>Prof. Ananya Sen</td>
+                <td>5 Students</td>
+                <td><span style="color:#10b981; font-weight:700;">100%</span></td>
+                <td>86.2%</td>
+                <td><span class="badge-role" style="background:rgba(16, 185, 129, 0.2); color:#10b981;">Optimal</span></td>
+              </tr>
+              <tr>
+                <td><strong>Computer Science & Engineering</strong></td>
+                <td>Dr. Vikram Verma</td>
+                <td>4 Students</td>
+                <td><span style="color:#38bdf8; font-weight:700;">75.0%</span></td>
+                <td>78.5%</td>
+                <td><span class="badge-role" style="background:rgba(245, 158, 11, 0.2); color:#f59e0b;">Moderate</span></td>
+              </tr>
+              <tr>
+                <td><strong>Data Science & Analytics</strong></td>
+                <td>Dr. Meera Iyer</td>
+                <td>2 Students</td>
+                <td><span style="color:#10b981; font-weight:700;">100%</span></td>
+                <td>88.0%</td>
+                <td><span class="badge-role" style="background:rgba(16, 185, 129, 0.2); color:#10b981;">Optimal</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
 
     <!-- ============================================== -->
@@ -1549,6 +1955,52 @@
 
   <!-- DYNAMIC CLIENT-SIDE LOGIC -->
   <script>
+    // PRE-SEEDED USER ACCOUNTS DATABASE
+    const SEED_USERS = [
+      {
+        email: 'student@gmail.com',
+        pass: 'student123',
+        role: 'student',
+        name: 'Student One (Demo)',
+        roll: 'BETN1AI25074',
+        course: 'B.Tech AIML',
+        sem: 3,
+        sec: 'D'
+      },
+      {
+        email: 'teacher@gmail.com',
+        pass: 'teacher123',
+        role: 'teacher',
+        name: 'Prof. Ananya Sen',
+        empid: 'EMP-AI-101',
+        dept: 'Artificial Intelligence & Data Science'
+      },
+      {
+        email: 'official@gmail.com',
+        pass: 'official123',
+        role: 'official',
+        name: 'Dr. R. K. Narayanan',
+        title: 'Campus Director'
+      },
+      {
+        email: 'dean.academics@edupredict.ai',
+        pass: 'dean123',
+        role: 'official',
+        name: 'Dr. S. K. Sharma',
+        title: 'Dean of Academics'
+      }
+    ];
+
+    // Check custom registered users from localStorage
+    function getAllUsers() {
+      let custom = [];
+      try {
+        const stored = localStorage.getItem('edupredict_users');
+        if (stored) custom = JSON.parse(stored);
+      } catch (err) {}
+      return [...SEED_USERS, ...custom];
+    }
+
     // Tab Switching
     function switchAuthTab(tab) {
       document.getElementById('auth-view-signin').style.display = tab === 'signin' ? 'block' : 'none';
@@ -1565,7 +2017,6 @@
       document.getElementById('signin-email').value = email;
       document.getElementById('signin-password').value = pass;
 
-      // Update role label indicator
       const roleMap = {
         'student': '👨‍🎓 Student Role',
         'teacher': '👩‍🏫 Faculty Role',
@@ -1574,7 +2025,6 @@
       };
       document.getElementById('active-role-indicator').textContent = roleMap[role] || 'Authenticated';
 
-      // Highlight active chip
       const chips = document.querySelectorAll('.chip-btn');
       chips.forEach(c => c.classList.remove('active'));
       event?.target?.classList?.add('active');
@@ -1597,7 +2047,6 @@
       el.type = el.type === 'password' ? 'text' : 'password';
     }
 
-    // Role selection in Registration form
     function selectRegRole(role) {
       document.getElementById('role-choice-student').className = 'role-radio-btn ' + (role === 'student' ? 'active' : '');
       document.getElementById('role-choice-teacher').className = 'role-radio-btn ' + (role === 'teacher' ? 'active' : '');
@@ -1608,7 +2057,7 @@
       document.getElementById('reg-official-fields').style.display = role === 'official' ? 'block' : 'none';
     }
 
-    // Handle Sign In submission
+    // SIGN IN: VERIFIES AGAINST DATABASE & UNLOCKS REAL DASHBOARD
     function handleSignIn(e) {
       e.preventDefault();
       const email = document.getElementById('signin-email').value.trim();
@@ -1623,20 +2072,70 @@
         btn.disabled = false;
         btn.innerHTML = '<span>Sign In to Portal</span> <span>→</span>';
 
-        alertBox.style.display = 'block';
-        alertBox.className = 'auth-alert-box auth-alert-success';
-        alertBox.innerHTML = `
-          <strong>✅ Verified!</strong> Signed in as <code>${email}</code>.<br>
-          <div style="margin-top:8px; display:flex; gap:8px;">
-            <a href="#simulator-section" style="color:#10b981; font-weight:700; text-decoration:underline;">
-              Enter Academic Workspace & Forecasts →
-            </a>
-          </div>
-        `;
-      }, 500);
+        const users = getAllUsers();
+        const matched = users.find(u => u.email.toLowerCase() === email.toLowerCase() && u.pass === pass);
+
+        if (!matched) {
+          alertBox.style.display = 'block';
+          alertBox.className = 'auth-alert-box auth-alert-error';
+          alertBox.innerHTML = '<strong>❌ Invalid Credentials:</strong> Please verify your email & password or click 1-Tap Demo above.';
+          return;
+        }
+
+        // Authentication Success! Save session and render full portal dashboard!
+        try {
+          sessionStorage.setItem('edupredict_session', JSON.stringify(matched));
+        } catch (err) {}
+
+        renderActiveDashboard(matched);
+      }, 400);
     }
 
-    // Handle Register submission
+    // SIGN OUT
+    function handleSignOut() {
+      try {
+        sessionStorage.removeItem('edupredict_session');
+      } catch (err) {}
+      document.getElementById('authenticated-portal-view').style.display = 'none';
+      document.getElementById('guest-landing-view').style.display = 'block';
+      document.getElementById('auth-portal-card').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    // RENDER DASHBOARD FOR LOGGED IN USER
+    function renderActiveDashboard(user) {
+      document.getElementById('guest-landing-view').style.display = 'none';
+      const dashView = document.getElementById('authenticated-portal-view');
+      dashView.style.display = 'block';
+
+      // Update Header info
+      document.getElementById('dash-display-name').textContent = user.name;
+      if (user.role === 'student') {
+        document.getElementById('dash-avatar-icon').textContent = '👨‍🎓';
+        document.getElementById('dash-badge-role').textContent = 'STUDENT PORTAL';
+        document.getElementById('dash-display-meta').textContent = `Roll: ${user.roll || 'BETN1AI25074'} • ${user.course || 'B.Tech AIML'} (Semester ${user.sem || 3}, Section ${user.sec || 'D'})`;
+        document.getElementById('dash-content-student').style.display = 'block';
+        document.getElementById('dash-content-teacher').style.display = 'none';
+        document.getElementById('dash-content-official').style.display = 'none';
+      } else if (user.role === 'teacher') {
+        document.getElementById('dash-avatar-icon').textContent = '👩‍🏫';
+        document.getElementById('dash-badge-role').textContent = 'FACULTY PORTAL';
+        document.getElementById('dash-display-meta').textContent = `Employee ID: ${user.empid || 'EMP-AI-101'} • Department: ${user.dept || 'Artificial Intelligence'}`;
+        document.getElementById('dash-content-student').style.display = 'none';
+        document.getElementById('dash-content-teacher').style.display = 'block';
+        document.getElementById('dash-content-official').style.display = 'none';
+      } else {
+        document.getElementById('dash-avatar-icon').textContent = '🏛️';
+        document.getElementById('dash-badge-role').textContent = 'INSTITUTIONAL GOVERNANCE';
+        document.getElementById('dash-display-meta').textContent = `${user.title || 'Campus Director'} • Institution-wide Academic Administration`;
+        document.getElementById('dash-content-student').style.display = 'none';
+        document.getElementById('dash-content-teacher').style.display = 'none';
+        document.getElementById('dash-content-official').style.display = 'block';
+      }
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // REGISTER NEW ACCOUNT
     function handleRegister(e) {
       e.preventDefault();
       const name = document.getElementById('reg-name').value.trim();
@@ -1652,12 +2151,34 @@
         return;
       }
 
-      alertBox.style.display = 'block';
-      alertBox.className = 'auth-alert-box auth-alert-success';
-      alertBox.innerHTML = `
-        <strong>🎉 Profile Created!</strong> Welcome, ${name}.<br>
-        Your credentials have been configured. You can now <a href="javascript:void(0)" onclick="switchAuthTab('signin')" style="color:#10b981; font-weight:700; text-decoration:underline;">Sign In</a>.
-      `;
+      let selectedRole = 'student';
+      if (document.getElementById('role-choice-teacher').classList.contains('active')) selectedRole = 'teacher';
+      if (document.getElementById('role-choice-official').classList.contains('active')) selectedRole = 'official';
+
+      const newUser = {
+        name: name,
+        email: email,
+        pass: pass,
+        role: selectedRole,
+        roll: document.getElementById('reg-roll')?.value || 'BETN1AI25099',
+        course: document.getElementById('reg-course')?.value || 'B.Tech AIML',
+        sem: 3,
+        sec: 'A',
+        empid: document.getElementById('reg-empid')?.value || 'EMP-AI-104',
+        dept: document.getElementById('reg-dept')?.value || 'Computer Science'
+      };
+
+      try {
+        let existing = [];
+        const stored = localStorage.getItem('edupredict_users');
+        if (stored) existing = JSON.parse(stored);
+        existing.push(newUser);
+        localStorage.setItem('edupredict_users', JSON.stringify(existing));
+      } catch (err) {}
+
+      // Immediately log in into their registered dashboard!
+      sessionStorage.setItem('edupredict_session', JSON.stringify(newUser));
+      renderActiveDashboard(newUser);
     }
 
     // Real-Time ML Simulator Logic
@@ -1672,9 +2193,6 @@
       document.getElementById('sim-val-exam').textContent = `${exam}%`;
       document.getElementById('sim-val-assign').textContent = `${assign}%`;
 
-      // Trained linear regression model formula:
-      // Code: 0 = Grade A, 1 = Grade B, 2 = Grade C, 3 = Grade D
-      // High exam score & study hours lower the code towards 0 (Grade A)
       let rawPred = 5.83 - (0.061 * exam) - (0.00062 * study) - (0.00022 * att) - (0.0004 * assign);
       rawPred = Math.max(0, Math.min(3, rawPred));
 
@@ -1712,6 +2230,16 @@
         statusTxt.style.color = '#ef4444';
       }
     }
+
+    // Auto-restore active session if already logged in
+    (function checkSession() {
+      try {
+        const active = sessionStorage.getItem('edupredict_session');
+        if (active) {
+          renderActiveDashboard(JSON.parse(active));
+        }
+      } catch (err) {}
+    })();
 
     // Run initial simulation
     updateSimulation();
