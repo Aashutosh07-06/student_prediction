@@ -1,0 +1,30 @@
+# Environments & Virtual Envs
+venv/
+.venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# Python bytecode & cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+.mypy_cache/
+
+# Streamlit
+.streamlit/secrets.toml
+
+# IDE & OS files
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Database sensitive configs / local backups
+*.sql.bak
+*.db.bak
