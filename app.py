@@ -1333,81 +1333,9 @@ def login_page():
     </div>
     """, unsafe_allow_html=True)
 
-    left, right = st.columns([1.1, 1], gap="large")
+    col_auth, col_portals = st.columns([1, 1.1], gap="large")
 
-    with left:
-        st.markdown('<div class="section-title">🌟 Academic Portals</div>', unsafe_allow_html=True)
-
-        # Student Showcase Card
-        st.markdown("""
-        <div class="portal-card student-card">
-            <div class="portal-header">
-                <div class="portal-title">👨‍🎓 Student Learning & Prediction Hub</div>
-                <span class="badge-student">STUDENT PORTAL</span>
-            </div>
-            <div class="portal-desc">
-                Designed for undergraduate and postgraduate students to monitor academic trajectories, forecast end-semester grades with AI, and identify study areas needing improvement.
-            </div>
-            <div class="feature-list">
-                <div class="feature-item">🔮 <b>15-Factor ML Grade Predictor:</b> Attendance, study hours, resources, assignments, edutech & stress.</div>
-                <div class="feature-item">📜 <b>Personal Academic Dossier:</b> Keep an immutable record of historical predictions and grade trends.</div>
-                <div class="feature-item">📈 <b>Performance Analytics:</b> Interactive visual charts showing progression and score indicators.</div>
-            </div>
-        </div>
-        """, unsafe_allow_html=True)
-
-        # Teacher Showcase Card
-        st.markdown("""
-        <div class="portal-card teacher-card">
-            <div class="portal-header">
-                <div class="portal-title">👩‍🏫 Faculty & Evaluator Portal</div>
-                <span class="badge-teacher">FACULTY PORTAL</span>
-            </div>
-            <div class="portal-desc">
-                Designed for professors, department heads, and academic mentors to oversee student cohorts, review prediction audit trails, and intervene early for students at risk.
-            </div>
-            <div class="feature-list">
-                <div class="feature-item">👨‍🎓 <b>Student Directory:</b> Complete student profile directory indexed by roll number, course, and section.</div>
-                <div class="feature-item">📜 <b>Prediction Audit Logs:</b> System-wide access to all student predictions with encoded and mapped grades.</div>
-                <div class="feature-item">📊 <b>Department Analytics:</b> Cohort scatter plots (study hours vs exams, attendance vs scores) and grade distributions.</div>
-            </div>
-        </div>
-        """, unsafe_allow_html=True)
-
-        # Quick Demo Login Buttons
-        st.markdown('<div class="section-title" style="font-size:18px; margin-top:14px;">⚡ Instant Demo Accounts</div>', unsafe_allow_html=True)
-        st.markdown("""
-        <p style="font-size:13px; color:#64748b; margin-top:-6px; margin-bottom:12px;">
-            Click below to instantly autofill credentials for testing different role permissions:
-        </p>
-        """, unsafe_allow_html=True)
-
-        demo_c1, demo_c2, demo_c3 = st.columns(3)
-        with demo_c1:
-            if st.button("👨‍🎓 Student Demo", use_container_width=True):
-                st.session_state["login_email"] = "student@gmail.com"
-                st.session_state["login_password"] = "student123"
-                st.session_state["login_portal_selector"] = "👨‍🎓 Student Portal"
-                st.session_state["selected_portal_idx"] = 0
-                st.rerun()
-
-        with demo_c2:
-            if st.button("👩‍🏫 Teacher Demo", use_container_width=True):
-                st.session_state["login_email"] = "teacher@gmail.com"
-                st.session_state["login_password"] = "teacher123"
-                st.session_state["login_portal_selector"] = "👩‍🏫 Faculty Portal"
-                st.session_state["selected_portal_idx"] = 1
-                st.rerun()
-
-        with demo_c3:
-            if st.button("🏛️ Official Demo", use_container_width=True):
-                st.session_state["login_email"] = "official@gmail.com"
-                st.session_state["login_password"] = "official123"
-                st.session_state["login_portal_selector"] = "🏛️ Institutional Official"
-                st.session_state["selected_portal_idx"] = 2
-                st.rerun()
-
-    with right:
+    with col_auth:
         with st.container(border=True):
             login_tab, register_tab = st.tabs(["🔐 Sign In", "📝 Create Account"])
 
@@ -1663,6 +1591,72 @@ def login_page():
                                 st.session_state["login_password"] = password
                             else:
                                 st.error(f"Registration failed: {result}")
+
+        # Quick Demo Buttons right inside Auth Column for instant mobile 1-tap access!
+        st.markdown('<div style="margin-top:14px; margin-bottom:6px; font-weight:700; font-size:14px; color:#475569;">⚡ Instant 1-Tap Demo Login</div>', unsafe_allow_html=True)
+        demo_c1, demo_c2, demo_c3 = st.columns(3)
+        with demo_c1:
+            if st.button("👨‍🎓 Student", use_container_width=True, help="Autofill student demo"):
+                st.session_state["login_email"] = "student@gmail.com"
+                st.session_state["login_password"] = "student123"
+                st.session_state["login_portal_selector"] = "👨‍🎓 Student Portal"
+                st.session_state["selected_portal_idx"] = 0
+                st.rerun()
+
+        with demo_c2:
+            if st.button("👩‍🏫 Faculty", use_container_width=True, help="Autofill teacher demo"):
+                st.session_state["login_email"] = "teacher@gmail.com"
+                st.session_state["login_password"] = "teacher123"
+                st.session_state["login_portal_selector"] = "👩‍🏫 Faculty Portal"
+                st.session_state["selected_portal_idx"] = 1
+                st.rerun()
+
+        with demo_c3:
+            if st.button("🏛️ Official", use_container_width=True, help="Autofill official demo"):
+                st.session_state["login_email"] = "official@gmail.com"
+                st.session_state["login_password"] = "official123"
+                st.session_state["login_portal_selector"] = "🏛️ Institutional Official"
+                st.session_state["selected_portal_idx"] = 2
+                st.rerun()
+
+    with col_portals:
+        st.markdown('<div class="section-title">🌟 Academic Portals & Overview</div>', unsafe_allow_html=True)
+
+        # Student Showcase Card
+        st.markdown("""
+        <div class="portal-card student-card">
+            <div class="portal-header">
+                <div class="portal-title">👨‍🎓 Student Learning & Prediction Hub</div>
+                <span class="badge-student">STUDENT PORTAL</span>
+            </div>
+            <div class="portal-desc">
+                Designed for undergraduate and postgraduate students to monitor academic trajectories, forecast end-semester grades with AI, and identify study areas needing improvement.
+            </div>
+            <div class="feature-list">
+                <div class="feature-item">🔮 <b>15-Factor ML Grade Predictor:</b> Attendance, study hours, resources, assignments, edutech & stress.</div>
+                <div class="feature-item">📜 <b>Personal Academic Dossier:</b> Keep an immutable record of historical predictions and grade trends.</div>
+                <div class="feature-item">📈 <b>Performance Analytics:</b> Interactive visual charts showing progression and score indicators.</div>
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
+
+        # Teacher Showcase Card
+        st.markdown("""
+        <div class="portal-card teacher-card">
+            <div class="portal-header">
+                <div class="portal-title">👩‍🏫 Faculty & Evaluator Portal</div>
+                <span class="badge-teacher">FACULTY PORTAL</span>
+            </div>
+            <div class="portal-desc">
+                Designed for professors, department heads, and academic mentors to oversee student cohorts, review prediction audit trails, and intervene early for students at risk.
+            </div>
+            <div class="feature-list">
+                <div class="feature-item">👨‍🎓 <b>Student Directory:</b> Complete student profile directory indexed by roll number, course, and section.</div>
+                <div class="feature-item">📜 <b>Prediction Audit Logs:</b> System-wide access to all student predictions with encoded and mapped grades.</div>
+                <div class="feature-item">📊 <b>Department Analytics:</b> Cohort scatter plots (study hours vs exams, attendance vs scores) and grade distributions.</div>
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
 
 
 # =========================================================
